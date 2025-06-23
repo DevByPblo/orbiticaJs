@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Stars } from '@react-three/drei';
 import Planet from './Planet';
 import OrbitLine from './OrbitLine';
 import { planetsData } from '../data/planetsData';
 
-const SolarSystem = ({ onSelectPlanet }) => {
-  
+const SolarSystem = ({ onSelectPlanet, speedScale = 1, currentSystem = 'system1' }) => {
+ 
+  const planets = planetsData[currentSystem] || [];
+
   return (
     <>
       {/* Starfield */}
@@ -22,16 +24,19 @@ const SolarSystem = ({ onSelectPlanet }) => {
       </mesh>
 
       {/* Orbit lines */}
-      {planetsData.map(p => (
-        <OrbitLine key={p.name} radius={p.distance} />
+      {planets.map((p) => (
+        <OrbitLine key={`orbit-${p.id}`} radius={p.distance} />
       ))}
 
       {/* Planets */}
-      {planetsData.map(planet => (
-        <Planet key={planet.name} planet={planet} onClick={onSelectPlanet} />
+      {planets.map((planet) => (
+        <Planet
+          key={planet.id}
+          planet={planet}
+          onClick={onSelectPlanet}
+          speedScale={speedScale}
+        />
       ))}
-
-    
     </>
   );
 };

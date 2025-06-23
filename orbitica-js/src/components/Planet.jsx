@@ -2,13 +2,13 @@ import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 
-const Planet = ({ planet, onClick }) => {
+const Planet = ({ planet, onClick, speedScale = 1 }) => {
   const planetRef = useRef();
   const [hovered, setHovered] = useState(false);
 
   useFrame(({ clock }) => {
     if (!planetRef.current) return;
-    const t = clock.getElapsedTime() * planet.speed;
+    const t = clock.getElapsedTime() * planet.speed * speedScale;
     const x = Math.sin(t) * planet.distance;
     const z = Math.cos(t) * planet.distance;
     planetRef.current.position.set(x, 0, z);
