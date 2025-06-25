@@ -7,7 +7,7 @@ import SolarSystem from '../components/SolarSystem';
 const Home = () => {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
    const [speedScale, setSpeedScale] = useState(1)
-   const [currentSystem, setCurrentSystem] = useState('system1')
+   const [currentSystem, setCurrentSystem] = useState('system4')
 
     //  const incSpeed =()=>{
     //     setSpeedScale(prev => prev + 1)
@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div style={{ position: 'relative', height: '100vh', width: '100vw', background:'none'}}>
-      <Canvas camera={{ position: [0, 5, 15], fov: 50 }} style={{ display: 'block', background:'black' }}>
+      <Canvas shadows  camera={{ position: [0, 5, 15], fov: 50 }} style={{ display: 'block', background:'black' }} >
         <ambientLight intensity={0.2} />
         <pointLight position={[0, 0, 0]} intensity={2} />
         <SolarSystem onSelectPlanet={setSelectedPlanet} speedScale={speedScale} currentSystem={currentSystem} />
@@ -72,7 +72,7 @@ const Home = () => {
         {/* <button onClick={decSpeed}>-</button>
       <span>{speedScale}</span>
         <button onClick={incSpeed}>+</button> */}
-    <input type="range" id="speedSlider" name="speed" min="0" max="20" value={speedScale} onChange={(e)=>setSpeedScale(Number(e.target.value))} />
+    <input type="range" id="speedSlider" name="speed" min="0" max="2" step='0.00001' value={speedScale} onChange={(e)=>setSpeedScale(Number(e.target.value))} />
     <span>Speed: X {speedScale}</span>
       </div>
       
@@ -81,6 +81,7 @@ const Home = () => {
                 <button onClick={()=>setCurrentSystem('system1') }>System 1</button>
                 <button onClick={()=>setCurrentSystem('system2')} >System 2</button>
                 <button onClick={()=>setCurrentSystem('system3')} >System 3</button>
+                 <button onClick={()=>setCurrentSystem('system4')} >System 4</button>
 
     </div>
     </div>
