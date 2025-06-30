@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Stars, useTexture } from '@react-three/drei';
 import Planet from './Planet';
 import OrbitLine from './OrbitLine';
@@ -6,14 +6,21 @@ import { planetsData } from '../data/planetsData';
 import * as THREE from 'three';
 import { useLoader } from '@react-three/fiber';
 
-const SolarSystem = ({ onSelectPlanet, speedScale = 1, currentSystem = 'system1' }) => {
+const SolarSystem = ({ onSelectPlanet, speedScale = 1, currentSystem = 'system1' , updatedPosition }) => {
   const planets = planetsData[currentSystem] || [];
 
   const [sunTexture, bmap] = useLoader(THREE.TextureLoader, [
     '/sun.jpg',
     '/planetBump/sun_displacement.png',
   ]);
+ 
+const handleUpdatedPlanetPosition = (id,pos)=>{
+    updatedPosition?.(id,pos)
+ 
 
+}
+ 
+  
   return (
     <>
       {/* Starfield */}
@@ -49,12 +56,8 @@ const SolarSystem = ({ onSelectPlanet, speedScale = 1, currentSystem = 'system1'
         shadow-camera-far={500}
       />
 
-      {/* Orbit lines */}
-      {/* {planets.map((planet) => (
-        <OrbitLine key={`orbit-${planet.id}`} radius={planet.distance} />
-      ))} */}
-
-      {/* Planets with orbit tilt */}
+     
+      {/* Planets  */}
       {planets.map((planet) => {
         const orbitAngleRad = THREE.MathUtils.degToRad(planet.planetOrbitAngle || 0);
         
@@ -64,8 +67,9 @@ const SolarSystem = ({ onSelectPlanet, speedScale = 1, currentSystem = 'system1'
               planet={planet}
               onClick={onSelectPlanet}
               speedScale={speedScale}
+              updatedPosition={handleUpdatedPlanetPosition}
             />
-            <OrbitLine key={`orbit-${planet.id}`} radius={planet.distance} />
+            <OrbitLine key={`orbit-${planet.id}`} radius={planet.distance  } />
           </group>
         );
       })}

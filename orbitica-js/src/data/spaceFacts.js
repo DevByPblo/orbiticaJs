@@ -1,0 +1,22 @@
+export const spaceFacts = [
+  "A day on Venus is longer than its year.",
+  "Neutron stars can spin up to 600 times per second.",
+  "A spoonful of neutron star material weighs about a billion tons.",
+  "Saturn’s rings are mostly made of ice particles.",
+  "There’s a diamond planet called 55 Cancri e.",
+  "Space is completely silent because there is no atmosphere.",
+  "The hottest planet in our solar system is Venus, not Mercury.",
+  "Jupiter’s Great Red Spot is a storm larger than Earth.",
+  "One million Earths could fit inside the Sun.",
+  "Mars has the largest volcano in the solar system: Olympus Mons.",
+  "The observable universe is about 93 billion light-years across.",
+  "A day on Mars is just over 24 hours long.",
+  "The Moon is drifting away from Earth about 1.5 inches per year.",
+  "Black holes aren’t black—they can glow from Hawking radiation.",
+  "The Voyager 1 spacecraft is the farthest man-made object from Earth.",
+  "There’s a planet that rains molten glass sideways called HD 189733b.",
+  "Our solar system orbits the center of the Milky Way galaxy every 225 million years.",
+  "Neutron stars are so dense that a sugar-cube-sized amount would weigh a billion tons on Earth.",
+  "The first woman in space was Valentina Tereshkova in 1963.",
+  "There’s a giant cloud of alcohol in space, enough to make 400 trillion trillion pints of beer."
+]

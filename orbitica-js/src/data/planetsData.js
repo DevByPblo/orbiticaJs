@@ -60,6 +60,7 @@ const earth = {
   category: 'Planet',
   planetTilt: 23.44,            
   planetOrbitAngle: 0, 
+  currentPos:0
 };
 
 const mars = {
@@ -124,6 +125,11 @@ const saturn = {
   category: 'Planet',
   planetTilt: 26.73,
   planetOrbitAngle: 2.48,
+  rings: {
+    innerRadius: 0.6,
+    outerRadius: 1.2,
+    texture: '/extraTextures/saturn_ring.png',  
+  },
 };
 
 const uranus = {
@@ -145,6 +151,7 @@ const uranus = {
   category: 'Planet',
   planetTilt: 97.77,
   planetOrbitAngle: 0.77,
+  
 };
 
 const neptune = {
@@ -277,5 +284,5 @@ export const planetsData = {
   system1: [mercury, venus, earth, mars, jupiter, saturn, uranus, neptune,pluto],
   system2: [mars, jupiter, saturn],
   system3: [xenon, aurelia, tethys, veridian],
-  system4: [earth,jupiter]
+  system4: [earth]
 };
